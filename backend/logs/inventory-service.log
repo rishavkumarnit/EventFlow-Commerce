@@ -1,0 +1,1061 @@
+2026-09-06T16:55:53.903+05:30  INFO 11648 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : Starting InventoryServiceApplication using Java 21.0.4 with PID 11648 (F:\JAVAPROJECT1\backend\inventory-service\build\classes\java\main started by Rishav in F:\JAVAPROJECT1\backend\inventory-service)
+2026-09-06T16:55:53.904+05:30  INFO 11648 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-09-06T16:55:54.693+05:30  INFO 11648 --- [inventory-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-06T16:55:54.777+05:30  INFO 11648 --- [inventory-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 2 JPA repository interfaces.
+2026-09-06T16:55:55.210+05:30  INFO 11648 --- [inventory-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-09-06T16:55:55.227+05:30  INFO 11648 --- [inventory-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-06T16:55:55.227+05:30  INFO 11648 --- [inventory-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-09-06T16:55:55.297+05:30  INFO 11648 --- [inventory-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-06T16:55:55.299+05:30  INFO 11648 --- [inventory-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1361 ms
+2026-09-06T16:55:55.624+05:30  INFO 11648 --- [inventory-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-06T16:55:55.746+05:30  INFO 11648 --- [inventory-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@733fae8
+2026-09-06T16:55:55.749+05:30  INFO 11648 --- [inventory-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-06T16:55:55.772+05:30  INFO 11648 --- [inventory-service] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5433/inventory_db (PostgreSQL 17.11)
+2026-09-06T16:55:55.828+05:30  INFO 11648 --- [inventory-service] [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.028s)
+2026-09-06T16:55:55.875+05:30  INFO 11648 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 1
+2026-09-06T16:55:55.894+05:30  INFO 11648 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - seed catalog inventory"
+2026-09-06T16:55:55.944+05:30  INFO 11648 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v2 (execution time 00:00.017s)
+2026-09-06T16:55:56.060+05:30  INFO 11648 --- [inventory-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-06T16:55:56.123+05:30  INFO 11648 --- [inventory-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-09-06T16:55:56.156+05:30  INFO 11648 --- [inventory-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-06T16:55:56.461+05:30  INFO 11648 --- [inventory-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-06T16:55:56.567+05:30  INFO 11648 --- [inventory-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.11
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-06T16:55:57.390+05:30  INFO 11648 --- [inventory-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-06T16:55:57.436+05:30  INFO 11648 --- [inventory-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-06T16:55:57.801+05:30  WARN 11648 --- [inventory-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-06T16:55:58.368+05:30  INFO 11648 --- [inventory-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoints beneath base path '/actuator'
+2026-09-06T16:55:58.544+05:30  INFO 11648 --- [inventory-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2026-09-06T16:55:58.609+05:30  INFO 11648 --- [inventory-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-inventory-service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = inventory-service
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-06T16:55:58.665+05:30  INFO 11648 --- [inventory-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-06T16:55:58.812+05:30  INFO 11648 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.2
+2026-09-06T16:55:58.812+05:30  INFO 11648 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e9866f43ab8e7e4
+2026-09-06T16:55:58.812+05:30  INFO 11648 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788693958811
+2026-09-06T16:55:58.825+05:30  INFO 11648 --- [inventory-service] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Subscribed to topic(s): orders.created.v1
+2026-09-06T16:55:58.842+05:30  INFO 11648 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : Started InventoryServiceApplication in 5.4 seconds (process running for 5.728)
+2026-09-06T16:55:58.847+05:30  WARN 11648 --- [inventory-service] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-06T16:55:58.847+05:30  WARN 11648 --- [inventory-service] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-06T16:55:59.268+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2026-09-06T16:55:59.269+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-06T16:55:59.272+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] (Re-)joining group
+2026-09-06T16:55:59.290+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Request joining group due to: need to re-join with the given member-id: consumer-inventory-service-1-68ddda47-1e1f-41b1-9c23-762b7a837624
+2026-09-06T16:55:59.291+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] (Re-)joining group
+2026-09-06T16:56:12.194+05:30  INFO 11648 --- [inventory-service] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-06T16:56:12.195+05:30  INFO 11648 --- [inventory-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-06T16:56:12.196+05:30  INFO 11648 --- [inventory-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-09-06T16:56:31.913+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Successfully joined group with generation Generation{generationId=3, memberId='consumer-inventory-service-1-68ddda47-1e1f-41b1-9c23-762b7a837624', protocol='range'}
+2026-09-06T16:56:31.929+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Finished assignment for group at generation 3: {consumer-inventory-service-1-68ddda47-1e1f-41b1-9c23-762b7a837624=Assignment(partitions=[orders.created.v1-0])}
+2026-09-06T16:56:31.947+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Successfully synced group in generation Generation{generationId=3, memberId='consumer-inventory-service-1-68ddda47-1e1f-41b1-9c23-762b7a837624', protocol='range'}
+2026-09-06T16:56:31.948+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Notifying assignor about the new Assignment(partitions=[orders.created.v1-0])
+2026-09-06T16:56:31.953+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Adding newly assigned partitions: orders.created.v1-0
+2026-09-06T16:56:31.976+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition orders.created.v1-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-09-06T16:56:31.979+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : inventory-service: partitions assigned: [orders.created.v1-0]
+2026-09-06T16:56:42.621+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = inventory-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2026-09-06T16:56:42.633+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-06T16:56:42.680+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=inventory-service-producer-1] Instantiated an idempotent producer.
+2026-09-06T16:56:42.718+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.2
+2026-09-06T16:56:42.718+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e9866f43ab8e7e4
+2026-09-06T16:56:42.718+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788694002718
+2026-09-06T16:56:42.733+05:30  INFO 11648 --- [inventory-service] [kafka-producer-network-thread | inventory-service-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=inventory-service-producer-1] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2026-09-06T16:56:42.735+05:30  INFO 11648 --- [inventory-service] [kafka-producer-network-thread | inventory-service-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=inventory-service-producer-1] ProducerId set to 3 with epoch 0
+2026-09-06T16:56:42.789+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.m.InventoryReservationService    : inventory.reserved orderId=37ef1da0-8399-477f-85b5-8642a98c9402 productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T16:56:42.861+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.messaging.OrderCreatedListener   : inventory.order_received orderId=37ef1da0-8399-477f-85b5-8642a98c9402 productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:01:22.887+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.m.InventoryReservationService    : inventory.reserved orderId=24a19da8-cd83-4a1b-9ce2-7ccfc2bf34ca productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:01:22.899+05:30  INFO 11648 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.messaging.OrderCreatedListener   : inventory.order_received orderId=24a19da8-cd83-4a1b-9ce2-7ccfc2bf34ca productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:02:53.129+05:30  INFO 43132 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : Starting InventoryServiceApplication using Java 21.0.4 with PID 43132 (F:\JAVAPROJECT1\backend\inventory-service\build\classes\java\main started by Rishav in F:\JAVAPROJECT1\backend\inventory-service)
+2026-09-06T17:02:53.132+05:30  INFO 43132 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-09-06T17:02:53.992+05:30  INFO 43132 --- [inventory-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-06T17:02:54.048+05:30  INFO 43132 --- [inventory-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2026-09-06T17:02:54.440+05:30  INFO 43132 --- [inventory-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-09-06T17:02:54.449+05:30  INFO 43132 --- [inventory-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-06T17:02:54.450+05:30  INFO 43132 --- [inventory-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-09-06T17:02:54.513+05:30  INFO 43132 --- [inventory-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-06T17:02:54.513+05:30  INFO 43132 --- [inventory-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1351 ms
+2026-09-06T17:02:54.833+05:30  INFO 43132 --- [inventory-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-06T17:02:54.959+05:30  INFO 43132 --- [inventory-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46e388ec
+2026-09-06T17:02:54.961+05:30  INFO 43132 --- [inventory-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-06T17:02:54.987+05:30  INFO 43132 --- [inventory-service] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5433/inventory_db (PostgreSQL 17.11)
+2026-09-06T17:02:55.043+05:30  INFO 43132 --- [inventory-service] [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.027s)
+2026-09-06T17:02:55.080+05:30  INFO 43132 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 2
+2026-09-06T17:02:55.082+05:30  INFO 43132 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-09-06T17:02:55.155+05:30  INFO 43132 --- [inventory-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-06T17:02:55.201+05:30  INFO 43132 --- [inventory-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-09-06T17:02:55.228+05:30  INFO 43132 --- [inventory-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-06T17:02:55.473+05:30  INFO 43132 --- [inventory-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-06T17:02:55.566+05:30  INFO 43132 --- [inventory-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.11
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-06T17:02:56.327+05:30  INFO 43132 --- [inventory-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-06T17:02:56.365+05:30  INFO 43132 --- [inventory-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-06T17:02:56.760+05:30  WARN 43132 --- [inventory-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-06T17:02:57.317+05:30  INFO 43132 --- [inventory-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoints beneath base path '/actuator'
+2026-09-06T17:02:57.419+05:30  INFO 43132 --- [inventory-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2026-09-06T17:02:57.450+05:30  INFO 43132 --- [inventory-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-inventory-service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = inventory-service
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-06T17:02:57.489+05:30  INFO 43132 --- [inventory-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-06T17:02:57.624+05:30  INFO 43132 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.2
+2026-09-06T17:02:57.624+05:30  INFO 43132 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e9866f43ab8e7e4
+2026-09-06T17:02:57.624+05:30  INFO 43132 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788694377623
+2026-09-06T17:02:57.638+05:30  INFO 43132 --- [inventory-service] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Subscribed to topic(s): orders.created.v1
+2026-09-06T17:02:57.656+05:30  INFO 43132 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : Started InventoryServiceApplication in 4.954 seconds (process running for 5.239)
+2026-09-06T17:02:57.662+05:30  WARN 43132 --- [inventory-service] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-06T17:02:57.663+05:30  WARN 43132 --- [inventory-service] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-06T17:02:57.957+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2026-09-06T17:02:57.958+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-06T17:02:57.961+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] (Re-)joining group
+2026-09-06T17:02:57.975+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Request joining group due to: need to re-join with the given member-id: consumer-inventory-service-1-e101bf7d-fb1b-48ab-8f59-4bbe71e7fb7e
+2026-09-06T17:02:57.976+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] (Re-)joining group
+2026-09-06T17:03:10.558+05:30  INFO 43132 --- [inventory-service] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-06T17:03:10.559+05:30  INFO 43132 --- [inventory-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-06T17:03:10.560+05:30  INFO 43132 --- [inventory-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-09-06T17:03:36.531+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Successfully joined group with generation Generation{generationId=4, memberId='consumer-inventory-service-1-e101bf7d-fb1b-48ab-8f59-4bbe71e7fb7e', protocol='range'}
+2026-09-06T17:03:36.544+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Finished assignment for group at generation 4: {consumer-inventory-service-1-e101bf7d-fb1b-48ab-8f59-4bbe71e7fb7e=Assignment(partitions=[orders.created.v1-0])}
+2026-09-06T17:03:36.554+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Successfully synced group in generation Generation{generationId=4, memberId='consumer-inventory-service-1-e101bf7d-fb1b-48ab-8f59-4bbe71e7fb7e', protocol='range'}
+2026-09-06T17:03:36.555+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Notifying assignor about the new Assignment(partitions=[orders.created.v1-0])
+2026-09-06T17:03:36.560+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Adding newly assigned partitions: orders.created.v1-0
+2026-09-06T17:03:36.578+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition orders.created.v1-0 to the committed offset FetchPosition{offset=7, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-09-06T17:03:36.580+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : inventory-service: partitions assigned: [orders.created.v1-0]
+2026-09-06T17:10:23.823+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = inventory-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2026-09-06T17:10:23.825+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-06T17:10:23.851+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=inventory-service-producer-1] Instantiated an idempotent producer.
+2026-09-06T17:10:23.882+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.2
+2026-09-06T17:10:23.883+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e9866f43ab8e7e4
+2026-09-06T17:10:23.883+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788694823882
+2026-09-06T17:10:23.899+05:30  INFO 43132 --- [inventory-service] [kafka-producer-network-thread | inventory-service-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=inventory-service-producer-1] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2026-09-06T17:10:23.899+05:30  INFO 43132 --- [inventory-service] [kafka-producer-network-thread | inventory-service-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=inventory-service-producer-1] ProducerId set to 6 with epoch 0
+2026-09-06T17:10:23.937+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.m.InventoryReservationService    : inventory.reserved orderId=f888a097-3425-447b-8e89-5d3d87fef8b0 productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:10:24.025+05:30  INFO 43132 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.messaging.OrderCreatedListener   : inventory.order_received orderId=f888a097-3425-447b-8e89-5d3d87fef8b0 productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:16:22.895+05:30  INFO 34028 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : Starting InventoryServiceApplication using Java 21.0.4 with PID 34028 (F:\JAVAPROJECT1\backend\inventory-service\build\classes\java\main started by Rishav in F:\JAVAPROJECT1\backend\inventory-service)
+2026-09-06T17:16:22.896+05:30  INFO 34028 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-09-06T17:16:23.830+05:30  INFO 34028 --- [inventory-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-06T17:16:23.877+05:30  INFO 34028 --- [inventory-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 2 JPA repository interfaces.
+2026-09-06T17:16:24.333+05:30  INFO 34028 --- [inventory-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-09-06T17:16:24.346+05:30  INFO 34028 --- [inventory-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-06T17:16:24.346+05:30  INFO 34028 --- [inventory-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-09-06T17:16:24.396+05:30  INFO 34028 --- [inventory-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-06T17:16:24.397+05:30  INFO 34028 --- [inventory-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1457 ms
+2026-09-06T17:16:24.705+05:30  INFO 34028 --- [inventory-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-06T17:16:24.813+05:30  INFO 34028 --- [inventory-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@26463a6
+2026-09-06T17:16:24.815+05:30  INFO 34028 --- [inventory-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-06T17:16:24.837+05:30  INFO 34028 --- [inventory-service] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5433/inventory_db (PostgreSQL 17.11)
+2026-09-06T17:16:24.886+05:30  INFO 34028 --- [inventory-service] [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.026s)
+2026-09-06T17:16:24.936+05:30  INFO 34028 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 2
+2026-09-06T17:16:24.944+05:30  INFO 34028 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-09-06T17:16:25.025+05:30  INFO 34028 --- [inventory-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-06T17:16:25.068+05:30  INFO 34028 --- [inventory-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-09-06T17:16:25.093+05:30  INFO 34028 --- [inventory-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-06T17:16:25.326+05:30  INFO 34028 --- [inventory-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-06T17:16:25.391+05:30  INFO 34028 --- [inventory-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.11
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-06T17:16:26.052+05:30  INFO 34028 --- [inventory-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-06T17:16:26.099+05:30  INFO 34028 --- [inventory-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-06T17:16:26.511+05:30  WARN 34028 --- [inventory-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-06T17:16:27.064+05:30  INFO 34028 --- [inventory-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoints beneath base path '/actuator'
+2026-09-06T17:16:27.162+05:30  INFO 34028 --- [inventory-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2026-09-06T17:16:27.195+05:30  INFO 34028 --- [inventory-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-inventory-service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = inventory-service
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-06T17:16:27.229+05:30  INFO 34028 --- [inventory-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-06T17:16:27.420+05:30  INFO 34028 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.2
+2026-09-06T17:16:27.420+05:30  INFO 34028 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e9866f43ab8e7e4
+2026-09-06T17:16:27.420+05:30  INFO 34028 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788695187419
+2026-09-06T17:16:27.432+05:30  INFO 34028 --- [inventory-service] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Subscribed to topic(s): orders.created.v1
+2026-09-06T17:16:27.453+05:30  INFO 34028 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : Started InventoryServiceApplication in 5.003 seconds (process running for 5.325)
+2026-09-06T17:16:27.459+05:30  WARN 34028 --- [inventory-service] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-06T17:16:27.459+05:30  WARN 34028 --- [inventory-service] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-06T17:16:27.762+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2026-09-06T17:16:27.763+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-06T17:16:27.765+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] (Re-)joining group
+2026-09-06T17:16:27.783+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Request joining group due to: need to re-join with the given member-id: consumer-inventory-service-1-81d3d0b8-a32b-4166-9d15-cac11662c339
+2026-09-06T17:16:27.783+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] (Re-)joining group
+2026-09-06T17:16:35.541+05:30  INFO 34028 --- [inventory-service] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-06T17:16:35.541+05:30  INFO 34028 --- [inventory-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-06T17:16:35.543+05:30  INFO 34028 --- [inventory-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-09-06T17:17:03.348+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Successfully joined group with generation Generation{generationId=5, memberId='consumer-inventory-service-1-81d3d0b8-a32b-4166-9d15-cac11662c339', protocol='range'}
+2026-09-06T17:17:03.368+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Finished assignment for group at generation 5: {consumer-inventory-service-1-81d3d0b8-a32b-4166-9d15-cac11662c339=Assignment(partitions=[orders.created.v1-0])}
+2026-09-06T17:17:03.431+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Successfully synced group in generation Generation{generationId=5, memberId='consumer-inventory-service-1-81d3d0b8-a32b-4166-9d15-cac11662c339', protocol='range'}
+2026-09-06T17:17:03.433+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Notifying assignor about the new Assignment(partitions=[orders.created.v1-0])
+2026-09-06T17:17:03.439+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Adding newly assigned partitions: orders.created.v1-0
+2026-09-06T17:17:03.468+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition orders.created.v1-0 to the committed offset FetchPosition{offset=8, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-09-06T17:17:03.475+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : inventory-service: partitions assigned: [orders.created.v1-0]
+2026-09-06T17:49:58.274+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = inventory-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2026-09-06T17:49:58.276+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-06T17:49:58.295+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=inventory-service-producer-1] Instantiated an idempotent producer.
+2026-09-06T17:49:58.328+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.2
+2026-09-06T17:49:58.329+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e9866f43ab8e7e4
+2026-09-06T17:49:58.329+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788697198328
+2026-09-06T17:49:58.339+05:30  INFO 34028 --- [inventory-service] [kafka-producer-network-thread | inventory-service-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=inventory-service-producer-1] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2026-09-06T17:49:58.339+05:30  INFO 34028 --- [inventory-service] [kafka-producer-network-thread | inventory-service-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=inventory-service-producer-1] ProducerId set to 9 with epoch 0
+2026-09-06T17:49:58.362+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.m.InventoryReservationService    : inventory.reserved orderId=231d51de-ffc8-43ce-9073-d4d38fa2d4e5 productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:49:58.408+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.messaging.OrderCreatedListener   : inventory.order_received orderId=231d51de-ffc8-43ce-9073-d4d38fa2d4e5 productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:54:02.732+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.m.InventoryReservationService    : inventory.reserved orderId=69999f03-9e72-4a82-815e-96afee733d1d productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:54:02.740+05:30  INFO 34028 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.messaging.OrderCreatedListener   : inventory.order_received orderId=69999f03-9e72-4a82-815e-96afee733d1d productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:58:09.484+05:30  INFO 47704 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : Starting InventoryServiceApplication using Java 21.0.4 with PID 47704 (F:\JAVAPROJECT1\backend\inventory-service\build\classes\java\main started by Rishav in F:\JAVAPROJECT1\backend\inventory-service)
+2026-09-06T17:58:09.486+05:30  INFO 47704 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-09-06T17:58:10.169+05:30  INFO 47704 --- [inventory-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-06T17:58:10.215+05:30  INFO 47704 --- [inventory-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 2 JPA repository interfaces.
+2026-09-06T17:58:10.542+05:30  INFO 47704 --- [inventory-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-09-06T17:58:10.553+05:30  INFO 47704 --- [inventory-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-06T17:58:10.553+05:30  INFO 47704 --- [inventory-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-09-06T17:58:10.609+05:30  INFO 47704 --- [inventory-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-06T17:58:10.610+05:30  INFO 47704 --- [inventory-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1095 ms
+2026-09-06T17:58:10.869+05:30  INFO 47704 --- [inventory-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-06T17:58:10.978+05:30  INFO 47704 --- [inventory-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@60c98f25
+2026-09-06T17:58:10.980+05:30  INFO 47704 --- [inventory-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-06T17:58:11.002+05:30  INFO 47704 --- [inventory-service] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5433/inventory_db (PostgreSQL 17.11)
+2026-09-06T17:58:11.044+05:30  INFO 47704 --- [inventory-service] [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.020s)
+2026-09-06T17:58:11.080+05:30  INFO 47704 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 2
+2026-09-06T17:58:11.083+05:30  INFO 47704 --- [inventory-service] [main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-09-06T17:58:11.148+05:30  INFO 47704 --- [inventory-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-06T17:58:11.190+05:30  INFO 47704 --- [inventory-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-09-06T17:58:11.213+05:30  INFO 47704 --- [inventory-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-06T17:58:11.419+05:30  INFO 47704 --- [inventory-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-06T17:58:11.485+05:30  INFO 47704 --- [inventory-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.11
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-06T17:58:12.118+05:30  INFO 47704 --- [inventory-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-06T17:58:12.160+05:30  INFO 47704 --- [inventory-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-06T17:58:12.513+05:30  WARN 47704 --- [inventory-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-06T17:58:13.026+05:30  INFO 47704 --- [inventory-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoints beneath base path '/actuator'
+2026-09-06T17:58:13.131+05:30  INFO 47704 --- [inventory-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2026-09-06T17:58:13.175+05:30  INFO 47704 --- [inventory-service] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-inventory-service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = inventory-service
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-06T17:58:13.219+05:30  INFO 47704 --- [inventory-service] [main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-06T17:58:13.357+05:30  INFO 47704 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.2
+2026-09-06T17:58:13.358+05:30  INFO 47704 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e9866f43ab8e7e4
+2026-09-06T17:58:13.358+05:30  INFO 47704 --- [inventory-service] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788697693356
+2026-09-06T17:58:13.371+05:30  INFO 47704 --- [inventory-service] [main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Subscribed to topic(s): orders.created.v1
+2026-09-06T17:58:13.389+05:30  INFO 47704 --- [inventory-service] [main] c.r.c.i.InventoryServiceApplication      : Started InventoryServiceApplication in 4.263 seconds (process running for 4.525)
+2026-09-06T17:58:13.396+05:30  WARN 47704 --- [inventory-service] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-06T17:58:13.396+05:30  WARN 47704 --- [inventory-service] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-06T17:58:13.699+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2026-09-06T17:58:13.700+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-06T17:58:13.702+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] (Re-)joining group
+2026-09-06T17:58:13.716+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Request joining group due to: need to re-join with the given member-id: consumer-inventory-service-1-3e0562ff-c331-4d6a-a9c5-292b9bd34482
+2026-09-06T17:58:13.716+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] (Re-)joining group
+2026-09-06T17:58:28.249+05:30  INFO 47704 --- [inventory-service] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-06T17:58:28.249+05:30  INFO 47704 --- [inventory-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-06T17:58:28.250+05:30  INFO 47704 --- [inventory-service] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-09-06T17:58:52.656+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Successfully joined group with generation Generation{generationId=6, memberId='consumer-inventory-service-1-3e0562ff-c331-4d6a-a9c5-292b9bd34482', protocol='range'}
+2026-09-06T17:58:52.662+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Finished assignment for group at generation 6: {consumer-inventory-service-1-3e0562ff-c331-4d6a-a9c5-292b9bd34482=Assignment(partitions=[orders.created.v1-0])}
+2026-09-06T17:58:52.668+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Successfully synced group in generation Generation{generationId=6, memberId='consumer-inventory-service-1-3e0562ff-c331-4d6a-a9c5-292b9bd34482', protocol='range'}
+2026-09-06T17:58:52.669+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Notifying assignor about the new Assignment(partitions=[orders.created.v1-0])
+2026-09-06T17:58:52.671+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Adding newly assigned partitions: orders.created.v1-0
+2026-09-06T17:58:52.680+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition orders.created.v1-0 to the committed offset FetchPosition{offset=10, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2026-09-06T17:58:52.681+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : inventory-service: partitions assigned: [orders.created.v1-0]
+2026-09-06T17:59:20.623+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = inventory-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2026-09-06T17:59:20.624+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-06T17:59:20.652+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=inventory-service-producer-1] Instantiated an idempotent producer.
+2026-09-06T17:59:20.679+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.2
+2026-09-06T17:59:20.680+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e9866f43ab8e7e4
+2026-09-06T17:59:20.680+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1788697760679
+2026-09-06T17:59:20.690+05:30  INFO 47704 --- [inventory-service] [kafka-producer-network-thread | inventory-service-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=inventory-service-producer-1] Cluster ID: 5L6g3nShT-eMCtK--X86sw
+2026-09-06T17:59:20.691+05:30  INFO 47704 --- [inventory-service] [kafka-producer-network-thread | inventory-service-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=inventory-service-producer-1] ProducerId set to 11 with epoch 0
+2026-09-06T17:59:20.719+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.m.InventoryReservationService    : inventory.reserved orderId=ee198551-8b6b-49f4-adb4-abe1d83ddff4 productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T17:59:20.758+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.messaging.OrderCreatedListener   : inventory.order_received orderId=ee198551-8b6b-49f4-adb4-abe1d83ddff4 productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T18:03:14.149+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.m.InventoryReservationService    : inventory.reserved orderId=5b83549e-7a88-486c-8e7d-0dbabac0980e productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T18:03:14.156+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] c.r.c.i.messaging.OrderCreatedListener   : inventory.order_received orderId=5b83549e-7a88-486c-8e7d-0dbabac0980e productId=323e4567-e89b-12d3-a456-426614174002 quantity=1
+2026-09-06T19:05:19.101+05:30  INFO 47704 --- [inventory-service] [kafka-coordinator-heartbeat-thread | inventory-service] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: true. Rediscovery will be attempted.
+2026-09-06T19:05:19.111+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-06T19:05:19.112+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Group coordinator localhost:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-09-06T19:05:19.112+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-06T19:05:19.231+05:30  INFO 47704 --- [inventory-service] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-inventory-service-1, groupId=inventory-service] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2026-09-06T19:05:27.799+05:30  WARN 47704 --- [inventory-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=55m44s442ms312µs200ns).

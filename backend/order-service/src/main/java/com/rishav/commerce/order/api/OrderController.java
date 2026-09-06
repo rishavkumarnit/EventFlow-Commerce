@@ -4,6 +4,7 @@ import com.rishav.commerce.events.OrderCreatedEvent;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +19,13 @@ import com.rishav.commerce.order.domain.Order;
 import com.rishav.commerce.order.domain.OrderRepository;
 import com.rishav.commerce.order.outbox.OrderOutboxService;
 import org.springframework.transaction.annotation.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/v1/orders")
-@org.springframework.web.bind.annotation.CrossOrigin(origins = "${FRONTEND_ORIGIN:http://localhost:5173}")
 class OrderController {
+    private static final Logger log = LoggerFactory.getLogger(OrderController.class);
     private final OrderRepository orderRepository;
     private final OrderOutboxService outboxService;
 
@@ -42,6 +45,7 @@ class OrderController {
                 UUID.randomUUID(), orderId, request.productId(), request.quantity(),
                 totalAmount, createdAt);
         outboxService.enqueue(event);
+        log.info("order.created orderId={} productId={} quantity={} totalAmount={}", orderId, request.productId(), request.quantity(), totalAmount);
         return event;
     }
 
@@ -50,5 +54,10 @@ class OrderController {
         return orderRepository.findById(orderId)
                 .map(OrderResponse::from)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
+    }
+
+    @GetMapping
+    List<OrderResponse> recent() {
+        return orderRepository.findTop10ByOrderByCreatedAtDesc().stream().map(OrderResponse::from).toList();
     }
 }

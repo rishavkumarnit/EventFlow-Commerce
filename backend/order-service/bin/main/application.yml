@@ -16,7 +16,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${JWT_ISSUER_URI:http://localhost:8081/realms/commerce}
+          issuer-uri: ${JWT_ISSUER_URI:http://127.0.0.1:8081/realms/commerce}
   datasource:
     url: ${ORDER_DATABASE_URL:jdbc:postgresql://127.0.0.1:5433/order_db}
     username: ${ORDER_DATABASE_USER:commerce}
@@ -27,5 +27,7 @@ spring:
     enabled: true
 management:
   endpoints.web.exposure.include: health,info,metrics,prometheus
+logging:
+  file.name: ${LOG_FILE:../logs/order-service.log}
 server:
   port: 8082

@@ -1,6 +1,7 @@
 package com.rishav.commerce.events;
 
 import java.time.Instant;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 public record InventoryReservedEvent(
@@ -8,5 +9,6 @@ public record InventoryReservedEvent(
         UUID orderId,
         UUID productId,
         int quantity,
+        BigDecimal totalAmount,
         Instant occurredAt
 ) { }

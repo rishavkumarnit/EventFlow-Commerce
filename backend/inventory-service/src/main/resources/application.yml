@@ -22,5 +22,7 @@ spring:
     enabled: true
 management:
   endpoints.web.exposure.include: health,info,metrics,prometheus
+logging:
+  file.name: ${LOG_FILE:../logs/inventory-service.log}
 server:
   port: 8083

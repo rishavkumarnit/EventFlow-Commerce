@@ -1,0 +1,33 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: eventflow
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: eventflow
+          service: order-service
+          __path__: /var/log/eventflow/order-service.log
+      - targets: [localhost]
+        labels:
+          job: eventflow
+          service: inventory-service
+          __path__: /var/log/eventflow/inventory-service.log
+      - targets: [localhost]
+        labels:
+          job: eventflow
+          service: payment-service
+          __path__: /var/log/eventflow/payment-service.log
+      - targets: [localhost]
+        labels:
+          job: eventflow
+          service: api-gateway
+          __path__: /var/log/eventflow/api-gateway.log

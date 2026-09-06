@@ -26,13 +26,19 @@ spring:
               uri: ${PRODUCT_CATALOG_URL:http://127.0.0.1:8084}
               predicates:
                 - Path=/api/v1/products/**
+            - id: payment-service
+              uri: ${PAYMENT_SERVICE_URL:http://127.0.0.1:8085}
+              predicates:
+                - Path=/api/v1/payments/**
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,metrics,prometheus
   endpoint:
     health:
       probes:
         enabled: true
+logging:
+  file.name: ${LOG_FILE:../logs/api-gateway.log}
