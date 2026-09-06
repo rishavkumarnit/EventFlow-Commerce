@@ -9,6 +9,17 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: com.rishav.commerce.events
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  datasource:
+    url: ${INVENTORY_DATABASE_URL:jdbc:postgresql://127.0.0.1:5433/inventory_db}
+    username: ${INVENTORY_DATABASE_USER:commerce}
+    password: ${INVENTORY_DATABASE_PASSWORD:commerce}
+  jpa:
+    hibernate.ddl-auto: validate
+  flyway:
+    enabled: true
 management:
   endpoints.web.exposure.include: health,info,metrics,prometheus
 server:

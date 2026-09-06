@@ -12,23 +12,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
+import com.rishav.commerce.order.domain.Order;
+import com.rishav.commerce.order.domain.OrderRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @RestController
 @RequestMapping("/api/v1/orders")
 class OrderController {
     private final KafkaTemplate<String, OrderCreatedEvent> kafkaTemplate;
+    private final OrderRepository orderRepository;
 
-    OrderController(KafkaTemplate<String, OrderCreatedEvent> kafkaTemplate) {
+    OrderController(KafkaTemplate<String, OrderCreatedEvent> kafkaTemplate, OrderRepository orderRepository) {
         this.kafkaTemplate = kafkaTemplate;
+        this.orderRepository = orderRepository;
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
+    @Transactional
     OrderCreatedEvent create(@Valid @RequestBody CreateOrderRequest request) {
         UUID orderId = UUID.randomUUID();
+        Instant createdAt = Instant.now();
+        BigDecimal totalAmount = request.unitPrice().multiply(BigDecimal.valueOf(request.quantity()));
+        orderRepository.save(new Order(orderId, request.productId(), request.quantity(), totalAmount, createdAt));
         OrderCreatedEvent event = new OrderCreatedEvent(
                 UUID.randomUUID(), orderId, request.productId(), request.quantity(),
-                request.unitPrice().multiply(BigDecimal.valueOf(request.quantity())), Instant.now());
+                totalAmount, createdAt);
         kafkaTemplate.send("orders.created.v1", orderId.toString(), event);
         return event;
     }

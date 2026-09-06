@@ -6,9 +6,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 class OrderCreatedListener {
+    private final InventoryReservationService reservationService;
+    OrderCreatedListener(InventoryReservationService reservationService) { this.reservationService = reservationService; }
     @KafkaListener(topics = "orders.created.v1", groupId = "inventory-service")
     void reserveStock(OrderCreatedEvent event) {
-        // Next slice: persist an idempotency key, reserve stock, then publish inventory.reserved.v1.
+        reservationService.reserve(event);
         System.out.printf("Reserving %d item(s) for order %s%n", event.quantity(), event.orderId());
     }
 }
