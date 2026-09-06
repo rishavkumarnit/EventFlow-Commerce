@@ -20,7 +20,7 @@ class SecurityConfiguration {
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .cors(cors -> {})
                 .authorizeExchange(exchange -> exchange
-                        .pathMatchers("/actuator/health", "/actuator/info", "/actuator/prometheus").permitAll()
+                        .pathMatchers("/actuator/health", "/actuator/info", "/actuator/prometheus", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/api-docs/**").permitAll()
                         .pathMatchers("/api/v1/products/**").permitAll()
                         .pathMatchers("/api/**").authenticated()
                         .anyExchange().denyAll())

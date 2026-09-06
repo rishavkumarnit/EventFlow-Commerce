@@ -12,3 +12,10 @@ frontend/dist/
 *.iml
 .env
 !.env.example
+
+# Graphify regenerates these local analysis caches. Keep the shareable graph,
+# report, and JSON export under graphify-out/, but do not track its internals.
+graphify-out/cache/
+graphify-out/.graphify_*
+graphify-out/cost.json
+graphify-out/manifest.json
