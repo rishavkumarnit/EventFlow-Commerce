@@ -19,4 +19,7 @@ public class InventoryItem {
         availableQuantity -= quantity;
         reservedQuantity += quantity;
     }
+    public UUID getProductId() { return productId; }
+    public int getAvailableQuantity() { return availableQuantity; }
+    public int getReservedQuantity() { return reservedQuantity; }
 }

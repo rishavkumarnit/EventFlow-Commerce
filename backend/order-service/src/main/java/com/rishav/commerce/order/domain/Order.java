@@ -23,4 +23,20 @@ public class Order {
         this.id = id; this.productId = productId; this.quantity = quantity;
         this.totalAmount = totalAmount; this.status = "PENDING_INVENTORY"; this.createdAt = createdAt;
     }
+
+    public void markInventoryReserved() {
+        this.status = "INVENTORY_RESERVED";
+    }
+
+    public void markOutOfStock() {
+        this.status = "OUT_OF_STOCK";
+    }
+    public void markPaid() { this.status = "PAID"; }
+
+    public UUID getId() { return id; }
+    public UUID getProductId() { return productId; }
+    public int getQuantity() { return quantity; }
+    public BigDecimal getTotalAmount() { return totalAmount; }
+    public String getStatus() { return status; }
+    public Instant getCreatedAt() { return createdAt; }
 }

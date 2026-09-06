@@ -5,26 +5,29 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 import jakarta.validation.Valid;
 import com.rishav.commerce.order.domain.Order;
 import com.rishav.commerce.order.domain.OrderRepository;
+import com.rishav.commerce.order.outbox.OrderOutboxService;
 import org.springframework.transaction.annotation.Transactional;
 
 @RestController
 @RequestMapping("/api/v1/orders")
+@org.springframework.web.bind.annotation.CrossOrigin(origins = "${FRONTEND_ORIGIN:http://localhost:5173}")
 class OrderController {
-    private final KafkaTemplate<String, OrderCreatedEvent> kafkaTemplate;
     private final OrderRepository orderRepository;
+    private final OrderOutboxService outboxService;
 
-    OrderController(KafkaTemplate<String, OrderCreatedEvent> kafkaTemplate, OrderRepository orderRepository) {
-        this.kafkaTemplate = kafkaTemplate;
-        this.orderRepository = orderRepository;
+    OrderController(OrderRepository orderRepository, OrderOutboxService outboxService) {
+        this.orderRepository = orderRepository; this.outboxService = outboxService;
     }
 
     @PostMapping
@@ -38,7 +41,14 @@ class OrderController {
         OrderCreatedEvent event = new OrderCreatedEvent(
                 UUID.randomUUID(), orderId, request.productId(), request.quantity(),
                 totalAmount, createdAt);
-        kafkaTemplate.send("orders.created.v1", orderId.toString(), event);
+        outboxService.enqueue(event);
         return event;
+    }
+
+    @GetMapping("/{orderId}")
+    OrderResponse findById(@PathVariable UUID orderId) {
+        return orderRepository.findById(orderId)
+                .map(OrderResponse::from)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Order not found"));
     }
 }

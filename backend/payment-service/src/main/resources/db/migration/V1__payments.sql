@@ -1,0 +1,1 @@
+CREATE TABLE payments (order_id UUID PRIMARY KEY, payment_id VARCHAR(80) NOT NULL UNIQUE);

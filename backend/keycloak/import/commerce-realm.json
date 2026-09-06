@@ -1,0 +1,39 @@
+{
+  "realm": "commerce",
+  "enabled": true,
+  "displayName": "EventFlow Commerce",
+  "registrationAllowed": true,
+  "registrationEmailAsUsername": true,
+  "resetPasswordAllowed": true,
+  "rememberMe": true,
+  "clients": [
+    {
+      "clientId": "commerce-frontend",
+      "name": "Commerce React Dashboard",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "redirectUris": ["http://localhost:5173/*", "http://127.0.0.1:5173/*"],
+      "webOrigins": ["http://localhost:5173", "http://127.0.0.1:5173"],
+      "defaultClientScopes": ["web-origins", "acr", "profile", "roles", "basic", "email", "orders.write"]
+    }
+  ],
+  "clientScopes": [
+    {
+      "name": "orders.write",
+      "description": "Allows creation and querying of commerce orders.",
+      "protocol": "openid-connect",
+      "attributes": { "include.in.token.scope": "true", "display.on.consent.screen": "false" }
+    }
+  ],
+  "users": [
+    {
+      "username": "demo-user",
+      "enabled": true,
+      "emailVerified": true,
+      "requiredActions": [],
+      "credentials": [{ "type": "password", "value": "commerce123", "temporary": false }]
+    }
+  ]
+}

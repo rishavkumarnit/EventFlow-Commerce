@@ -1,6 +1,7 @@
 package com.rishav.commerce.inventory.messaging;
 
 import com.rishav.commerce.events.InventoryReservedEvent;
+import com.rishav.commerce.events.InventoryReservationFailedEvent;
 import com.rishav.commerce.events.OrderCreatedEvent;
 import com.rishav.commerce.inventory.domain.InventoryItemRepository;
 import com.rishav.commerce.inventory.domain.ProcessedEvent;
@@ -25,11 +26,18 @@ class InventoryReservationService {
     @Transactional
     void reserve(OrderCreatedEvent event) {
         if (processedEvents.existsById(event.eventId())) return;
-        var item = inventory.findById(event.productId())
-                .orElseThrow(() -> new IllegalArgumentException("Unknown product " + event.productId()));
-        item.reserve(event.quantity());
-        processedEvents.save(new ProcessedEvent(event.eventId()));
-        kafkaTemplate.send("inventory.reserved.v1", event.orderId().toString(), new InventoryReservedEvent(
-                UUID.randomUUID(), event.orderId(), event.productId(), event.quantity(), Instant.now()));
+        try {
+            var item = inventory.findById(event.productId())
+                    .orElseThrow(() -> new IllegalArgumentException("Unknown product " + event.productId()));
+            item.reserve(event.quantity());
+            processedEvents.save(new ProcessedEvent(event.eventId()));
+            kafkaTemplate.send("inventory.reserved.v1", event.orderId().toString(), new InventoryReservedEvent(
+                    UUID.randomUUID(), event.orderId(), event.productId(), event.quantity(), Instant.now()));
+        } catch (IllegalArgumentException | IllegalStateException exception) {
+            processedEvents.save(new ProcessedEvent(event.eventId()));
+            kafkaTemplate.send("inventory.reservation-failed.v1", event.orderId().toString(),
+                    new InventoryReservationFailedEvent(UUID.randomUUID(), event.orderId(), event.productId(),
+                            event.quantity(), exception.getMessage(), Instant.now()));
+        }
     }
 }
