@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: ${PORT:8085}
 
 spring:
   config:
@@ -8,6 +8,10 @@ spring:
     name: payment-service
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    properties:
+      security.protocol: ${KAFKA_SECURITY_PROTOCOL:PLAINTEXT}
+      sasl.mechanism: ${KAFKA_SASL_MECHANISM:}
+      sasl.jaas.config: ${KAFKA_SASL_JAAS_CONFIG:}
     consumer:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
@@ -17,7 +21,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   datasource:
-    url: ${PAYMENT_DATABASE_URL:jdbc:postgresql://127.0.0.1:5433/payment_db}
+    url: ${PAYMENT_DATABASE_URL:jdbc:postgresql://${PAYMENT_DATABASE_HOST:127.0.0.1}:${PAYMENT_DATABASE_PORT:5433}/${PAYMENT_DATABASE_NAME:payment_db}}
     username: ${PAYMENT_DATABASE_USER:commerce}
     password: ${PAYMENT_DATABASE_PASSWORD:commerce}
   jpa:

@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { authorizationHeader, initializeAuth, signIn, signOut, signUp } from './auth'
-const API='http://127.0.0.1:8080/api/v1'; const FLOW=['PENDING_INVENTORY','INVENTORY_RESERVED','PAID']; type Product={id:string;name:string;price:number}; type Order={id:string;status:string;totalAmount:number};
+const API=`${(import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:8080').replace(/\/$/, '')}/api/v1`; const FLOW=['PENDING_INVENTORY','INVENTORY_RESERVED','PAID']; type Product={id:string;name:string;price:number}; type Order={id:string;status:string;totalAmount:number};
 const label=(s:string)=>s.replaceAll('_',' ').toLowerCase().replace(/\b\w/g,x=>x.toUpperCase())
 export default function App(){const[products,setProducts]=useState<Product[]>([]),[productId,setProductId]=useState(''),[signed,setSigned]=useState(false),[message,setMessage]=useState('Loading catalog…'),[order,setOrder]=useState<Order|null>(null),[history,setHistory]=useState<Order[]>([])
  const loadHistory=async()=>{try{const r=await fetch(`${API}/orders`,{headers:await authorizationHeader()});if(r.ok)setHistory(await r.json())}catch{}}

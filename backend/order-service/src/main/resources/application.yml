@@ -3,6 +3,10 @@ spring:
     name: order-service
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    properties:
+      security.protocol: ${KAFKA_SECURITY_PROTOCOL:PLAINTEXT}
+      sasl.mechanism: ${KAFKA_SASL_MECHANISM:}
+      sasl.jaas.config: ${KAFKA_SASL_JAAS_CONFIG:}
     consumer:
       group-id: order-service
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -18,7 +22,7 @@ spring:
         jwt:
           issuer-uri: ${JWT_ISSUER_URI:http://127.0.0.1:8081/realms/commerce}
   datasource:
-    url: ${ORDER_DATABASE_URL:jdbc:postgresql://127.0.0.1:5433/order_db}
+    url: ${ORDER_DATABASE_URL:jdbc:postgresql://${ORDER_DATABASE_HOST:127.0.0.1}:${ORDER_DATABASE_PORT:5433}/${ORDER_DATABASE_NAME:order_db}}
     username: ${ORDER_DATABASE_USER:commerce}
     password: ${ORDER_DATABASE_PASSWORD:commerce}
   jpa:
@@ -30,4 +34,4 @@ management:
 logging:
   file.name: ${LOG_FILE:../logs/order-service.log}
 server:
-  port: 8082
+  port: ${PORT:8082}

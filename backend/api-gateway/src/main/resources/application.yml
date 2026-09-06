@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 spring:
   application:
@@ -8,48 +8,48 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${JWT_ISSUER_URI:http://127.0.0.1:8081/realms/commerce}
+          issuer-uri: ${JWT_ISSUER_BASE_URL:http://127.0.0.1:8081}/realms/commerce
   cloud:
     gateway:
       server:
         webflux:
           routes:
             - id: order-service
-              uri: ${ORDER_SERVICE_URL:http://127.0.0.1:8082}
+              uri: http://${ORDER_SERVICE_HOSTPORT:127.0.0.1:8082}
               predicates:
                 - Path=/api/v1/orders/**
             - id: inventory-service
-              uri: ${INVENTORY_SERVICE_URL:http://127.0.0.1:8083}
+              uri: http://${INVENTORY_SERVICE_HOSTPORT:127.0.0.1:8083}
               predicates:
                 - Path=/api/v1/inventory/**
             - id: product-catalog
-              uri: ${PRODUCT_CATALOG_URL:http://127.0.0.1:8084}
+              uri: http://${PRODUCT_CATALOG_SERVICE_HOSTPORT:127.0.0.1:8084}
               predicates:
                 - Path=/api/v1/products/**
             - id: payment-service
-              uri: ${PAYMENT_SERVICE_URL:http://127.0.0.1:8085}
+              uri: http://${PAYMENT_SERVICE_HOSTPORT:127.0.0.1:8085}
               predicates:
                 - Path=/api/v1/payments/**
             - id: order-service-openapi
-              uri: ${ORDER_SERVICE_URL:http://127.0.0.1:8082}
+              uri: http://${ORDER_SERVICE_HOSTPORT:127.0.0.1:8082}
               predicates:
                 - Path=/api-docs/orders/**
               filters:
                 - StripPrefix=2
             - id: inventory-service-openapi
-              uri: ${INVENTORY_SERVICE_URL:http://127.0.0.1:8083}
+              uri: http://${INVENTORY_SERVICE_HOSTPORT:127.0.0.1:8083}
               predicates:
                 - Path=/api-docs/inventory/**
               filters:
                 - StripPrefix=2
             - id: product-catalog-openapi
-              uri: ${PRODUCT_CATALOG_URL:http://127.0.0.1:8084}
+              uri: http://${PRODUCT_CATALOG_SERVICE_HOSTPORT:127.0.0.1:8084}
               predicates:
                 - Path=/api-docs/products/**
               filters:
                 - StripPrefix=2
             - id: payment-service-openapi
-              uri: ${PAYMENT_SERVICE_URL:http://127.0.0.1:8085}
+              uri: http://${PAYMENT_SERVICE_HOSTPORT:127.0.0.1:8085}
               predicates:
                 - Path=/api-docs/payments/**
               filters:
@@ -77,5 +77,12 @@ management:
     health:
       probes:
         enabled: true
+
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://127.0.0.1:5173}
+  throttle:
+    # Per client IP, per 60-second window. Override with THROTTLE_REQUESTS_PER_MINUTE in deployment.
+    requests-per-minute: ${THROTTLE_REQUESTS_PER_MINUTE:60}
 logging:
   file.name: ${LOG_FILE:../logs/api-gateway.log}

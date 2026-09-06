@@ -1,0 +1,208 @@
+services:
+  - type: web
+    name: eventflow-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          name: eventflow-gateway
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: VITE_KEYCLOAK_URL
+        fromService:
+          name: eventflow-keycloak
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: VITE_KEYCLOAK_REALM
+        value: commerce
+      - key: VITE_KEYCLOAK_CLIENT_ID
+        value: commerce-frontend
+
+  - type: web
+    name: eventflow-gateway
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: api-gateway/Dockerfile
+    dockerContext: .
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: JWT_ISSUER_BASE_URL
+        fromService:
+          name: eventflow-keycloak
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: CORS_ALLOWED_ORIGINS
+        fromService:
+          name: eventflow-frontend
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: ORDER_SERVICE_HOSTPORT
+        fromService:
+          name: eventflow-order-service
+          type: pserv
+          property: hostport
+      - key: INVENTORY_SERVICE_HOSTPORT
+        fromService:
+          name: eventflow-inventory-service
+          type: pserv
+          property: hostport
+      - key: PRODUCT_CATALOG_SERVICE_HOSTPORT
+        fromService:
+          name: eventflow-product-catalog
+          type: pserv
+          property: hostport
+      - key: PAYMENT_SERVICE_HOSTPORT
+        fromService:
+          name: eventflow-payment-service
+          type: pserv
+          property: hostport
+      - key: THROTTLE_REQUESTS_PER_MINUTE
+        value: 100
+
+  - type: pserv
+    name: eventflow-order-service
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: order-service/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: ORDER_DATABASE_HOST
+        fromDatabase: { name: eventflow-order-db, property: host }
+      - key: ORDER_DATABASE_PORT
+        fromDatabase: { name: eventflow-order-db, property: port }
+      - key: ORDER_DATABASE_NAME
+        fromDatabase: { name: eventflow-order-db, property: database }
+      - key: ORDER_DATABASE_USER
+        fromDatabase: { name: eventflow-order-db, property: user }
+      - key: ORDER_DATABASE_PASSWORD
+        fromDatabase: { name: eventflow-order-db, property: password }
+      - key: KAFKA_BOOTSTRAP_SERVERS
+        sync: false
+      - key: KAFKA_SECURITY_PROTOCOL
+        value: SASL_SSL
+      - key: KAFKA_SASL_MECHANISM
+        value: PLAIN
+      - key: KAFKA_SASL_JAAS_CONFIG
+        sync: false
+
+  - type: pserv
+    name: eventflow-inventory-service
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: inventory-service/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: INVENTORY_DATABASE_HOST
+        fromDatabase: { name: eventflow-inventory-db, property: host }
+      - key: INVENTORY_DATABASE_PORT
+        fromDatabase: { name: eventflow-inventory-db, property: port }
+      - key: INVENTORY_DATABASE_NAME
+        fromDatabase: { name: eventflow-inventory-db, property: database }
+      - key: INVENTORY_DATABASE_USER
+        fromDatabase: { name: eventflow-inventory-db, property: user }
+      - key: INVENTORY_DATABASE_PASSWORD
+        fromDatabase: { name: eventflow-inventory-db, property: password }
+      - key: KAFKA_BOOTSTRAP_SERVERS
+        sync: false
+      - key: KAFKA_SECURITY_PROTOCOL
+        value: SASL_SSL
+      - key: KAFKA_SASL_MECHANISM
+        value: PLAIN
+      - key: KAFKA_SASL_JAAS_CONFIG
+        sync: false
+
+  - type: pserv
+    name: eventflow-product-catalog
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: product-catalog/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: PRODUCT_DATABASE_HOST
+        fromDatabase: { name: eventflow-product-db, property: host }
+      - key: PRODUCT_DATABASE_PORT
+        fromDatabase: { name: eventflow-product-db, property: port }
+      - key: PRODUCT_DATABASE_NAME
+        fromDatabase: { name: eventflow-product-db, property: database }
+      - key: PRODUCT_DATABASE_USER
+        fromDatabase: { name: eventflow-product-db, property: user }
+      - key: PRODUCT_DATABASE_PASSWORD
+        fromDatabase: { name: eventflow-product-db, property: password }
+
+  - type: pserv
+    name: eventflow-payment-service
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: payment-service/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: PAYMENT_DATABASE_HOST
+        fromDatabase: { name: eventflow-payment-db, property: host }
+      - key: PAYMENT_DATABASE_PORT
+        fromDatabase: { name: eventflow-payment-db, property: port }
+      - key: PAYMENT_DATABASE_NAME
+        fromDatabase: { name: eventflow-payment-db, property: database }
+      - key: PAYMENT_DATABASE_USER
+        fromDatabase: { name: eventflow-payment-db, property: user }
+      - key: PAYMENT_DATABASE_PASSWORD
+        fromDatabase: { name: eventflow-payment-db, property: password }
+      - key: KAFKA_BOOTSTRAP_SERVERS
+        sync: false
+      - key: KAFKA_SECURITY_PROTOCOL
+        value: SASL_SSL
+      - key: KAFKA_SASL_MECHANISM
+        value: PLAIN
+      - key: KAFKA_SASL_JAAS_CONFIG
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+
+  - type: web
+    name: eventflow-keycloak
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: keycloak/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: KC_DB
+        value: postgres
+      - key: KC_DB_URL_HOST
+        fromDatabase: { name: eventflow-keycloak-db, property: host }
+      - key: KC_DB_URL_PORT
+        fromDatabase: { name: eventflow-keycloak-db, property: port }
+      - key: KC_DB_URL_DATABASE
+        fromDatabase: { name: eventflow-keycloak-db, property: database }
+      - key: KC_DB_USERNAME
+        fromDatabase: { name: eventflow-keycloak-db, property: user }
+      - key: KC_DB_PASSWORD
+        fromDatabase: { name: eventflow-keycloak-db, property: password }
+      - key: KC_BOOTSTRAP_ADMIN_USERNAME
+        sync: false
+      - key: KC_BOOTSTRAP_ADMIN_PASSWORD
+        sync: false
+
+databases:
+  - name: eventflow-order-db
+    databaseName: order_db
+    user: commerce
+  - name: eventflow-inventory-db
+    databaseName: inventory_db
+    user: commerce
+  - name: eventflow-product-db
+    databaseName: product_db
+    user: commerce
+  - name: eventflow-payment-db
+    databaseName: payment_db
+    user: commerce
+  - name: eventflow-keycloak-db
+    databaseName: keycloak_db
+    user: commerce
