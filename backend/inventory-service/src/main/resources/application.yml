@@ -7,6 +7,7 @@ spring:
       security.protocol: ${KAFKA_SECURITY_PROTOCOL:PLAINTEXT}
       sasl.mechanism: ${KAFKA_SASL_MECHANISM:}
       sasl.jaas.config: ${KAFKA_SASL_JAAS_CONFIG:}
+      ssl.truststore.certificates: ${KAFKA_SSL_TRUSTSTORE_CERTIFICATES:}
     consumer:
       group-id: inventory-service
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer

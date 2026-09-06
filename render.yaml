@@ -91,6 +91,8 @@ services:
         value: PLAIN
       - key: KAFKA_SASL_JAAS_CONFIG
         sync: false
+      - key: KAFKA_SSL_TRUSTSTORE_CERTIFICATES
+        sync: false
 
   - type: pserv
     name: eventflow-inventory-service
@@ -116,6 +118,8 @@ services:
       - key: KAFKA_SASL_MECHANISM
         value: PLAIN
       - key: KAFKA_SASL_JAAS_CONFIG
+        sync: false
+      - key: KAFKA_SSL_TRUSTSTORE_CERTIFICATES
         sync: false
 
   - type: pserv
@@ -160,6 +164,8 @@ services:
       - key: KAFKA_SASL_MECHANISM
         value: PLAIN
       - key: KAFKA_SASL_JAAS_CONFIG
+        sync: false
+      - key: KAFKA_SSL_TRUSTSTORE_CERTIFICATES
         sync: false
       - key: RAZORPAY_KEY_ID
         sync: false

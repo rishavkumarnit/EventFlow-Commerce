@@ -4,7 +4,7 @@ This repository includes `render.yaml`, a Render Blueprint that creates the Reac
 
 ## Before you begin
 
-Create a Render account connected to the GitHub repository, plus a Confluent Cloud Kafka cluster. Keep all credentials in the provider dashboards; never add them to Git.
+Create a Render account connected to the GitHub repository, plus an Aiven for Apache Kafka service. Keep all credentials in the provider dashboards; never add them to Git.
 
 ## Deploy the Blueprint
 
@@ -13,20 +13,23 @@ Create a Render account connected to the GitHub repository, plus a Confluent Clo
 3. During the initial setup, provide values for every field marked as a secret:
    - `KAFKA_BOOTSTRAP_SERVERS`
    - `KAFKA_SASL_JAAS_CONFIG`
+   - `KAFKA_SSL_TRUSTSTORE_CERTIFICATES`
    - `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET`
    - `KC_BOOTSTRAP_ADMIN_USERNAME` and `KC_BOOTSTRAP_ADMIN_PASSWORD`
 4. Wait until Keycloak, the four private services, the gateway, and the frontend are healthy. Open the public frontend URL from Render.
 
-## Confluent Cloud Kafka values
+## Aiven Kafka values
 
-For each service that asks for Kafka configuration, use the same values:
+For each service that asks for Kafka configuration, use the same values from the Aiven Kafka Overview page:
 
 ```text
-KAFKA_BOOTSTRAP_SERVERS=<Confluent bootstrap server>
+KAFKA_BOOTSTRAP_SERVERS=<Aiven host>:<Aiven SASL port>
 KAFKA_SECURITY_PROTOCOL=SASL_SSL
 KAFKA_SASL_MECHANISM=PLAIN
-KAFKA_SASL_JAAS_CONFIG=org.apache.kafka.common.security.plain.PlainLoginModule required username="<API_KEY>" password="<API_SECRET>";
+KAFKA_SASL_JAAS_CONFIG=org.apache.kafka.common.security.plain.PlainLoginModule required username="<Aiven user>" password="<Aiven password>";
 ```
+
+For `KAFKA_SSL_TRUSTSTORE_CERTIFICATES`, paste the full CA certificate from Aiven's Kafka Overview page, including the `BEGIN CERTIFICATE` and `END CERTIFICATE` lines. This keeps the Aiven certificate out of Git while allowing all Java services to validate the Kafka connection.
 
 ## Finish Keycloak and Google login
 
