@@ -1,0 +1,14 @@
+# Java / Gradle
+.gradle/
+**/build/
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+
+# Editor and environment files
+.idea/
+.vscode/
+*.iml
+.env
+!.env.example

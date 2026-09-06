@@ -1,0 +1,5 @@
+rootProject.name = 'commerce-platform'
+
+include 'common-events'
+include 'order-service'
+include 'inventory-service'
