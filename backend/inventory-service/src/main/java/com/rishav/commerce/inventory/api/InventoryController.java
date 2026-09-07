@@ -11,16 +11,20 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/v1/inventory")
-@org.springframework.web.bind.annotation.CrossOrigin(origins = "${FRONTEND_ORIGIN:http://localhost:5173}")
+@org.springframework.web.bind.annotation.CrossOrigin(
+    origins = "${FRONTEND_ORIGIN:http://localhost:5173}")
 class InventoryController {
-    private final InventoryItemRepository inventory;
+  private final InventoryItemRepository inventory;
 
-    InventoryController(InventoryItemRepository inventory) { this.inventory = inventory; }
+  InventoryController(InventoryItemRepository inventory) {
+    this.inventory = inventory;
+  }
 
-    @GetMapping("/{productId}")
-    InventoryResponse findByProductId(@PathVariable UUID productId) {
-        return inventory.findById(productId)
-                .map(InventoryResponse::from)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
-    }
+  @GetMapping("/{productId}")
+  InventoryResponse findByProductId(@PathVariable UUID productId) {
+    return inventory
+        .findById(productId)
+        .map(InventoryResponse::from)
+        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
+  }
 }

@@ -9,12 +9,22 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenApiConfiguration {
-    @Bean
-    OpenAPI paymentOpenApi() {
-        return new OpenAPI()
-                .info(new Info().title("EventFlow Commerce - Payment Service").version("v1")
-                        .description("Razorpay Test Mode checkout endpoints for the event-driven order workflow."))
-                .components(new Components().addSecuritySchemes("bearerAuth", new SecurityScheme()
-                        .type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));
-    }
+  @Bean
+  OpenAPI paymentOpenApi() {
+    return new OpenAPI()
+        .info(
+            new Info()
+                .title("EventFlow Commerce - Payment Service")
+                .version("v1")
+                .description(
+                    "Razorpay Test Mode checkout endpoints for the event-driven order workflow."))
+        .components(
+            new Components()
+                .addSecuritySchemes(
+                    "bearerAuth",
+                    new SecurityScheme()
+                        .type(SecurityScheme.Type.HTTP)
+                        .scheme("bearer")
+                        .bearerFormat("JWT")));
+  }
 }

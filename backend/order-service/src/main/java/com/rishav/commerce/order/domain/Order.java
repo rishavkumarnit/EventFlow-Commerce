@@ -10,33 +10,57 @@ import java.util.UUID;
 @Entity
 @Table(name = "orders")
 public class Order {
-    @Id private UUID id;
-    private UUID productId;
-    private int quantity;
-    private BigDecimal totalAmount;
-    private String status;
-    private Instant createdAt;
+  @Id private UUID id;
+  private UUID productId;
+  private int quantity;
+  private BigDecimal totalAmount;
+  private String status;
+  private Instant createdAt;
 
-    protected Order() { }
+  protected Order() {}
 
-    public Order(UUID id, UUID productId, int quantity, BigDecimal totalAmount, Instant createdAt) {
-        this.id = id; this.productId = productId; this.quantity = quantity;
-        this.totalAmount = totalAmount; this.status = "PENDING_INVENTORY"; this.createdAt = createdAt;
-    }
+  public Order(UUID id, UUID productId, int quantity, BigDecimal totalAmount, Instant createdAt) {
+    this.id = id;
+    this.productId = productId;
+    this.quantity = quantity;
+    this.totalAmount = totalAmount;
+    this.status = "PENDING_INVENTORY";
+    this.createdAt = createdAt;
+  }
 
-    public void markInventoryReserved() {
-        this.status = "INVENTORY_RESERVED";
-    }
+  public void markInventoryReserved() {
+    this.status = "INVENTORY_RESERVED";
+  }
 
-    public void markOutOfStock() {
-        this.status = "OUT_OF_STOCK";
-    }
-    public void markPaid() { this.status = "PAID"; }
+  public void markOutOfStock() {
+    this.status = "OUT_OF_STOCK";
+  }
 
-    public UUID getId() { return id; }
-    public UUID getProductId() { return productId; }
-    public int getQuantity() { return quantity; }
-    public BigDecimal getTotalAmount() { return totalAmount; }
-    public String getStatus() { return status; }
-    public Instant getCreatedAt() { return createdAt; }
+  public void markPaid() {
+    this.status = "PAID";
+  }
+
+  public UUID getId() {
+    return id;
+  }
+
+  public UUID getProductId() {
+    return productId;
+  }
+
+  public int getQuantity() {
+    return quantity;
+  }
+
+  public BigDecimal getTotalAmount() {
+    return totalAmount;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public Instant getCreatedAt() {
+    return createdAt;
+  }
 }

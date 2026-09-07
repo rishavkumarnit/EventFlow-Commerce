@@ -10,10 +10,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @Profile("local")
 class LocalSecurityConfiguration {
-    @Bean
-    SecurityFilterChain localSecurityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
-                .build();
-    }
+  @Bean
+  SecurityFilterChain localSecurityFilterChain(HttpSecurity http) throws Exception {
+    return http.csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
+        .build();
+  }
 }

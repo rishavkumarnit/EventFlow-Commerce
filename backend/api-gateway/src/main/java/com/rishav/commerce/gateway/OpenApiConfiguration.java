@@ -7,9 +7,14 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenApiConfiguration {
-    @Bean
-    OpenAPI gatewayOpenApi() {
-        return new OpenAPI().info(new Info().title("EventFlow Commerce API Gateway").version("v1")
-                .description("Central API documentation for the EventFlow Commerce microservices."));
-    }
+  @Bean
+  OpenAPI gatewayOpenApi() {
+    return new OpenAPI()
+        .info(
+            new Info()
+                .title("EventFlow Commerce API Gateway")
+                .version("v1")
+                .description(
+                    "Central API documentation for the EventFlow Commerce microservices."));
+  }
 }

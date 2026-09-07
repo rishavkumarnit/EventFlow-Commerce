@@ -6,10 +6,9 @@ import java.util.UUID;
 
 /** Immutable event contract shared by the order and inventory bounded contexts. */
 public record OrderCreatedEvent(
-        UUID eventId,
-        UUID orderId,
-        UUID productId,
-        int quantity,
-        BigDecimal totalAmount,
-        Instant occurredAt
-) { }
+    UUID eventId,
+    UUID orderId,
+    UUID productId,
+    int quantity,
+    BigDecimal totalAmount,
+    Instant occurredAt) {}

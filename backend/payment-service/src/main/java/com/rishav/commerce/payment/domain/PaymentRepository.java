@@ -1,1 +1,6 @@
-package com.rishav.commerce.payment.domain; import org.springframework.data.jpa.repository.JpaRepository; import java.util.UUID; public interface PaymentRepository extends JpaRepository<Payment,UUID>{}
+package com.rishav.commerce.payment.domain;
+
+import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PaymentRepository extends JpaRepository<Payment, UUID> {}

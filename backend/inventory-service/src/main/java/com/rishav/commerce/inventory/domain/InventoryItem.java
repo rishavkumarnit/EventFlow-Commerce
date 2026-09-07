@@ -8,18 +8,33 @@ import java.util.UUID;
 @Entity
 @Table(name = "inventory_items")
 public class InventoryItem {
-    @Id private UUID productId;
-    private int availableQuantity;
-    private int reservedQuantity;
+  @Id private UUID productId;
+  private int availableQuantity;
+  private int reservedQuantity;
 
-    protected InventoryItem() { }
-    public InventoryItem(UUID productId, int availableQuantity) { this.productId = productId; this.availableQuantity = availableQuantity; }
-    public void reserve(int quantity) {
-        if (availableQuantity < quantity) throw new IllegalStateException("Insufficient stock for product " + productId);
-        availableQuantity -= quantity;
-        reservedQuantity += quantity;
-    }
-    public UUID getProductId() { return productId; }
-    public int getAvailableQuantity() { return availableQuantity; }
-    public int getReservedQuantity() { return reservedQuantity; }
+  protected InventoryItem() {}
+
+  public InventoryItem(UUID productId, int availableQuantity) {
+    this.productId = productId;
+    this.availableQuantity = availableQuantity;
+  }
+
+  public void reserve(int quantity) {
+    if (availableQuantity < quantity)
+      throw new IllegalStateException("Insufficient stock for product " + productId);
+    availableQuantity -= quantity;
+    reservedQuantity += quantity;
+  }
+
+  public UUID getProductId() {
+    return productId;
+  }
+
+  public int getAvailableQuantity() {
+    return availableQuantity;
+  }
+
+  public int getReservedQuantity() {
+    return reservedQuantity;
+  }
 }

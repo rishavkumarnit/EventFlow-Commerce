@@ -7,7 +7,4 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public record CreateOrderRequest(
-        @NotNull UUID productId,
-        @Positive int quantity,
-        @NotNull @Min(0) BigDecimal unitPrice
-) { }
+    @NotNull UUID productId, @Positive int quantity, @NotNull @Min(0) BigDecimal unitPrice) {}

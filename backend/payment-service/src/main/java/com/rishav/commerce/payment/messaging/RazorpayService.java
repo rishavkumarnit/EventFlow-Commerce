@@ -1,6 +1,69 @@
 package com.rishav.commerce.payment.messaging;
 
-import java.math.BigDecimal;import java.net.URI;import java.net.http.*;import java.nio.charset.StandardCharsets;import java.security.MessageDigest;import java.util.*;import javax.crypto.Mac;import javax.crypto.spec.SecretKeySpec;import org.springframework.beans.factory.annotation.Value;import org.springframework.stereotype.Service;
-@Service public class RazorpayService { @Value("${razorpay.key-id}") String key; @Value("${razorpay.key-secret}") String secret; private final HttpClient http=HttpClient.newHttpClient();
- public String create(UUID id,BigDecimal value){try{long paise=value.movePointRight(2).longValueExact();String body="{\"amount\":"+paise+",\"currency\":\"INR\",\"receipt\":\"ef_"+id.toString().substring(0,8)+"\"}";String auth=Base64.getEncoder().encodeToString((key+":"+secret).getBytes(StandardCharsets.UTF_8));var r=http.send(HttpRequest.newBuilder(URI.create("https://api.razorpay.com/v1/orders")).header("Authorization","Basic "+auth).header("Content-Type","application/json").POST(HttpRequest.BodyPublishers.ofString(body)).build(),HttpResponse.BodyHandlers.ofString());var m=java.util.regex.Pattern.compile("\\\"id\\\"\\s*:\\s*\\\"([^\\\"]+)\\\"").matcher(r.body());if(r.statusCode()/100!=2||!m.find())throw new IllegalStateException("Razorpay rejected the order");return m.group(1);}catch(Exception e){throw new IllegalStateException("Unable to create Razorpay order",e);}}
- public boolean valid(String order,String payment,String signature){try{var mac=Mac.getInstance("HmacSHA256");mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8),"HmacSHA256"));return MessageDigest.isEqual(mac.doFinal((order+"|"+payment).getBytes(StandardCharsets.UTF_8)),HexFormat.of().parseHex(signature));}catch(Exception e){return false;}} public String key(){return key;}}
+import java.math.BigDecimal;
+import java.net.URI;
+import java.net.http.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.*;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RazorpayService {
+  @Value("${razorpay.key-id}")
+  String key;
+
+  @Value("${razorpay.key-secret}")
+  String secret;
+
+  private final HttpClient http = HttpClient.newHttpClient();
+
+  public String create(UUID id, BigDecimal value) {
+    try {
+      long paise = value.movePointRight(2).longValueExact();
+      String body =
+          "{\"amount\":"
+              + paise
+              + ",\"currency\":\"INR\",\"receipt\":\"ef_"
+              + id.toString().substring(0, 8)
+              + "\"}";
+      String auth =
+          Base64.getEncoder().encodeToString((key + ":" + secret).getBytes(StandardCharsets.UTF_8));
+      var r =
+          http.send(
+              HttpRequest.newBuilder(URI.create("https://api.razorpay.com/v1/orders"))
+                  .header("Authorization", "Basic " + auth)
+                  .header("Content-Type", "application/json")
+                  .POST(HttpRequest.BodyPublishers.ofString(body))
+                  .build(),
+              HttpResponse.BodyHandlers.ofString());
+      var m =
+          java.util.regex.Pattern.compile("\\\"id\\\"\\s*:\\s*\\\"([^\\\"]+)\\\"")
+              .matcher(r.body());
+      if (r.statusCode() / 100 != 2 || !m.find())
+        throw new IllegalStateException("Razorpay rejected the order");
+      return m.group(1);
+    } catch (Exception e) {
+      throw new IllegalStateException("Unable to create Razorpay order", e);
+    }
+  }
+
+  public boolean valid(String order, String payment, String signature) {
+    try {
+      var mac = Mac.getInstance("HmacSHA256");
+      mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
+      return MessageDigest.isEqual(
+          mac.doFinal((order + "|" + payment).getBytes(StandardCharsets.UTF_8)),
+          HexFormat.of().parseHex(signature));
+    } catch (Exception e) {
+      return false;
+    }
+  }
+
+  public String key() {
+    return key;
+  }
+}
