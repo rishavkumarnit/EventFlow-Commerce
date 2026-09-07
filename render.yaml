@@ -73,6 +73,11 @@ services:
     dockerfilePath: order-service/Dockerfile
     dockerContext: .
     envVars:
+      - key: JWT_ISSUER_BASE_URL
+        fromService:
+          name: eventflow-keycloak
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
       - key: ORDER_DATABASE_HOST
         fromDatabase: { name: eventflow-order-db, property: host }
       - key: ORDER_DATABASE_PORT

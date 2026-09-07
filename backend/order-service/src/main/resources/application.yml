@@ -22,7 +22,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${JWT_ISSUER_URI:http://127.0.0.1:8081/realms/commerce}
+          issuer-uri: ${JWT_ISSUER_BASE_URL:http://127.0.0.1:8081}/realms/commerce
   datasource:
     url: ${ORDER_DATABASE_URL:jdbc:postgresql://${ORDER_DATABASE_HOST:127.0.0.1}:${ORDER_DATABASE_PORT:5433}/${ORDER_DATABASE_NAME:order_db}}
     username: ${ORDER_DATABASE_USER:commerce}
