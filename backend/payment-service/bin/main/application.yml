@@ -1,0 +1,47 @@
+server:
+  port: ${PORT:8085}
+
+spring:
+  config:
+    import: "optional:file:../.env[.properties]"
+  application:
+    name: payment-service
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    properties:
+      security.protocol: ${KAFKA_SECURITY_PROTOCOL:PLAINTEXT}
+      sasl.mechanism: ${KAFKA_SASL_MECHANISM:}
+      sasl.jaas.config: ${KAFKA_SASL_JAAS_CONFIG:}
+      ssl.truststore.certificates: ${KAFKA_SSL_TRUSTSTORE_CERTIFICATES:}
+      ssl.truststore.type: ${KAFKA_SSL_TRUSTSTORE_TYPE:PEM}
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.rishav.commerce.events
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  datasource:
+    url: ${PAYMENT_DATABASE_URL:jdbc:postgresql://${PAYMENT_DATABASE_HOST:127.0.0.1}:${PAYMENT_DATABASE_PORT:5433}/${PAYMENT_DATABASE_NAME:payment_db}}
+    username: ${PAYMENT_DATABASE_USER:commerce}
+    password: ${PAYMENT_DATABASE_PASSWORD:commerce}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+
+logging:
+  file:
+    name: ${LOG_FILE:../logs/payment-service.log}
+
+razorpay:
+  key-id: ${RAZORPAY_KEY_ID:}
+  key-secret: ${RAZORPAY_KEY_SECRET:}
